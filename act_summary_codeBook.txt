@@ -1,0 +1,31 @@
+Human Activity Recognition Using Smartphones Dataset
+Version 1.0
+
+
+1. You should create one R script called run_analysis.R that does the following. 
+
+
+
+2. Merges the training and the test sets to create one data set.
+
+First download features, activity_labels and data files from the folder that was saved in the working directory. script was written to download pertinant files in any working directory so that this process is reproducible.
+
+Based on the description of the data: "From each window, a vector of features was obtained by calculating variables from the time and frequency domain." And the information in the README file the column names were changed in activity_labels and the features document used as a vector of column names for the X files. 
+
+The activity_labels and Y files were join based on the activity ID in both. Then the Y file was cbinded to the X files, then the subject file was cbinded to the X file, thereby making the X files complete from a column perspective with subject ID and activity name. Then, the train and test files were rbinded together to make complete file with all the data and descriptive attributes.
+
+3. Extracts only the measurements on the mean and standard deviation for each measurement. 
+
+Simply subsetted the rows.
+
+4. Uses descriptive activity names to name the activities in the data set
+
+This was incorporated into the merging process.
+
+5. Appropriately labels the data set with descriptive variable names. 
+
+Simply renamed the data column names so that they could be processed without error while easy to understand.
+
+6. Creates a second, independent tidy data set with the average of each variable for each activity and each subject. 
+
+Used ddply from the {plyr} package to summerize the mean of the means and stds under the desired criteria, 'subject' and activity name. 
